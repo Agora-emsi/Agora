@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Club Agora - EMSI Marrakech, votre passerelle vers la créativité et la culture. Découvrez nos événements, notre équipe et contactez-nous !">
+  <title>Club Agora - EMSI</title>
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* General Styles */
+    body {
+      font-family: "Times New Roman", serif;
+      margin: 0;
+      background-color: #e8f5e9;
+      color: #333;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: #1b5e20;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Header */
+    header {
+      background-color: #1b5e20;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .header-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .header-logos img {
+      margin: 0 20px;
+    }
+    .logo-agora {
+      max-height: 60px;
+      width: auto;
+    }
+    .logo-emsi {
+      max-height: 50px;
+      width: auto;
+    }
+    .header-content {
+      text-align: center;
+    }
+    .header-content h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: #2e7d32;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #1b5e20;
+    }
+    
+    /* Main Content Area */
+    main {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    main section:nth-of-type(even) {
+      background-color: #f1f8e9;
+    }
+    h2 {
+      color: #1b5e20;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.1em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    blockquote {
+      font-style: italic;
+      font-size: 1.2em;
+      color: #555;
+      border-left: 4px solid #1b5e20;
+      margin: 20px auto;
+      padding-left: 20px;
+      max-width: 700px;
+    }
+    
+    /* Events */
+    .event {
+      margin-bottom: 40px;
+    }
+    .event h3 {
+      color: #2e7d32;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .event p {
+      font-size: 1em;
+    }
+    .event img.event-img {
+      width: 100%;
+      max-width: 60%;
+      height: auto;
+      margin: 10px auto;
+      display: block;
+    }
+    
+    /* Atelier Musical Video & Image Styles */
+    video.atelier-video {
+      width: 100%;
+      max-width: 50%;
+      display: block;
+      margin: 0 auto 20px;
+      border: none;
+      background: transparent;
+    }
+    img.atelier-img {
+      width: 70%;
+      max-width: 35%;
+      display: block;
+      margin: 0 auto 20px;
+    }
+    
+    /* Team Section */
+    .team {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .team img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .leaders {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .leaders li {
+      margin: 5px 15px;
+      font-weight: bold;
+      color: #1b5e20;
+    }
+    
+    /* Contact & Custom Form Styles */
+    .contact-container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f1f8e9;
+      border-radius: 8px;
+    }
+    .contact-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-container input, 
+    .contact-container textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    .contact-container button {
+      padding: 10px;
+      background-color: #1b5e20;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .contact-container button:hover {
+      background-color: #155a14;
+    }
+    
+    .whatsapp {
+      margin-top: 20px;
+    }
+    .whatsapp img {
+      max-width: 300px;
+      height: auto;
+      margin-top: 10px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #1b5e20;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .social-links a {
+      margin: 0 15px;
+      color: #008e00;
+      font-size: 1.2em;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: white;
+    }
+    .language-switch {
+      margin-top: 10px;
+    }
+    .language-switch a {
+      margin: 0 10px;
+      color: #a5d6a7;
+      font-weight: bold;
+    }
+    .language-switch a:hover {
+      color: white;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .leaders {
+        flex-direction: column;
+      }
+      .leaders li {
+        margin: 5px 0;
+      }
+      .contact-container {
+        padding: 0 20px;
+      }
+      video.atelier-video,
+      img.atelier-img {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="animate__animated animate__fadeInDown">
+    <div class="header-logos">
+      <img src="images/images.png" alt="Logo Agora" class="logo-agora" loading="lazy">
+      <img src="images/logo-1.png" alt="Logo EMSI" class="logo-emsi" loading="lazy">
+    </div>
+    <div class="header-content animate__animated animate__zoomIn animate__delay-1s">
+      <h1>Bienvenue au Club Agora</h1>
+      <p>Votre passerelle vers la créativité et la culture à l'EMSI</p>
+    </div>
+  </header>
+  
+  <!-- Navigation -->
+  <nav class="animate__animated animate__fadeInDown animate__delay-2s">
+    <a href="#about">À Propos</a>
+    <a href="#citation">Citation</a>
+    <a href="#events">Événements</a>
+    <a href="#team">Équipe</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section id="about" class="animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>À Propos</h2>
+      <p>Le Club Agora est le club culturel de l'EMSI Marrakech, vous invitant à une aventure culturo-artistique enrichissante. Rejoignez-nous maintenant!</p>
+    </section>
+    
+    <!-- Artistic Quote Section -->
+    <section id="citation" class="animate__animated animate__fadeInUp animate__delay-1s">
+      <blockquote>
+        "L'art lave notre âme de la poussière du quotidien." – Pablo Picasso
+      </blockquote>
+    </section>
+    
+    <!-- Events Section -->
+    <section id="events" class="animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>Événements</h2>
+      <div class="event">
+        <h3>Journée Portes Ouvertes - 14 Mars</h3>
+        <p>Notre club a organisé une journée portes ouvertes inoubliable en mars ! Rejoignez-nous pour vivre ces expériences.</p>
+      </div>
+      <div class="event">
+        <h3>Journée des Femmes - 8 Mars</h3>
+        <p>Le Club Agora a célébré la Journée Internationale de la Femme le 8 mars, mettant en lumière les réalisations des femmes et favorisant un échange enrichissant.</p>
+        <img src="images/femmes.jpg" alt="Célébration de la Journée des Femmes" class="event-img" loading="lazy">
+      </div>
+      <div class="event">
+        <h3>Participation au Festival International du Film de Marrakech 2019</h3>
+        <p>
+          Le Club Agora EMSI Marrakech a participé au Festival International du Film de Marrakech, offrant aux membres une expérience immersive dans le monde du cinéma. 
+          <a href="https://www.facebook.com/BDEREV/videos/participation-du-club-agora-emsi-marrakech-au-fifm/364350300788100/" target="_blank" class="voir-video">Voir la vidéo</a>
+        </p>
+      </div>
+      <div class="event">
+        <h3>EMSI Best Talent</h3>
+        <p>
+          Le Club Agora a organisé le concours "EMSI Best Talent", mettant en valeur les compétences artistiques des étudiants. On vous invite à découvrir les talents de l'EMSI.
+        </p>
+      </div>
+      <div class="event">
+        <h3>Semaine Culturelle En Avril</h3>
+        <p>Rejoignez-nous pour la Semaine Culturelle qui se déroulera à la mi-avril, avec des activités variées, des expositions et des performances artistiques.</p>
+      </div>
+      <div class="event">
+        <h3>Atelier Artistique</h3>
+        <p>Participez à nos ateliers artistiques qui incluent de la musique, des parties d'échecs, des jeux et bien d'autres activités ludiques pour stimuler votre créativité.</p>
+         <img src="images/atelier1.jpg" alt="Atelier Musical" class="atelier-img" loading="lazy">
+      </div>
+      <div class="event">
+        <h3>Atelier Musical</h3>
+        <p>Participez à nos ateliers musicaux qui allient créativité et performance. Retrouvez ici une vidéo illustrant l'atelier.</p>
+        <video class="atelier-video" controls>
+          <source src="images/vid111.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+      </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section id="team" class="animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>Notre Équipe</h2>
+      <div class="team">
+        <img src="images/comite.jpg" alt="Photo des membres du club" loading="lazy">
+        <h3>Les Leaders du Club</h3>
+        <ul class="leaders">
+          <li>Nada</li>
+          <li>Khalil</li>
+          <li>Mehdi</li>
+          <li>Najd</li>
+          <li>Basma</li>
+          <li>Aya</li>
+          <li>Mohammed</li>
+          <li>Salaheddine</li>
+          <li>Wiam</li>
+          <li>Hajar</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>Contact</h2>
+      <p>Suivez-nous sur nos réseaux sociaux pour rester informé de nos activités :</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/club_agora_emsi" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/AGORAEMSI" target="_blank">Facebook</a>
+      </div>
+      <div class="whatsapp">
+        <p>Rejoignez notre groupe WhatsApp :</p>
+        <img src="images/scan.jpg" alt="QR Code WhatsApp" loading="lazy">
+      </div>
+      <div class="contact-container">
+        <h3>Envoyez-nous un message</h3>
+        <!-- Updated form using Formsubmit -->
+        <form id="contactForm" action="https://formsubmit.co/nojy.qasbar@gmail.com" method="POST">
+          <input type="text" name="user_name" placeholder="Votre nom" required>
+          <input type="email" name="user_email" placeholder="Votre email" required>
+          <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="animate__animated animate__fadeInUp animate__delay-1s">
+    <p>&copy; 2025 Club Agora - EMSI</p>
+    <div class="language-switch">
+      <a href="#">Français</a>
+    </div>
+  </footer>
+  
+  <!-- JavaScript for handling form submission using Formsubmit and smooth scrolling -->
+  <script>
+    // Handle form submission with Formsubmit
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevent the default form submission
+      
+      fetch(this.action, {
+        method: this.method,         // usually "POST"
+        body: new FormData(this)     // grab all form data
+      }).then(response => {
+        if (response.ok) {
+          alert('Message envoyé avec succès !');
+          this.reset();  // Optionally reset the form after success
+        } else {
+          alert('Échec de l’envoi du message. Veuillez réessayer plus tard.');
+        }
+      }).catch(error => {
+        alert('Échec de l’envoi du message. Veuillez réessayer plus tard.');
+      });
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
