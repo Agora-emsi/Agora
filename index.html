@@ -237,20 +237,59 @@
       color: white;
     }
     
-    /* Responsive adjustments */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
+      /* Adjust navigation for smaller screens */
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        padding: 10px;
+        margin: 5px 0;
+      }
+      
+      /* Adjust header logos */
+      .header-logos img {
+        margin: 0 10px;
+        max-height: 50px;
+      }
+      
+      /* Text and images scaling */
+      .event img.event-img,
+      video.atelier-video,
+      img.atelier-img {
+        max-width: 90%;
+      }
+      
+      /* Adjust leaders section layout */
       .leaders {
         flex-direction: column;
       }
       .leaders li {
         margin: 5px 0;
       }
-      .contact-container {
-        padding: 0 20px;
+      
+      /* Reduce padding for main content */
+      main {
+        padding: 40px 10px;
       }
-      video.atelier-video,
-      img.atelier-img {
-        max-width: 90%;
+    }
+    
+    @media (max-width: 480px) {
+      /* Further adjustments for very small screens */
+      header h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.75em;
+      }
+      p, blockquote {
+        font-size: 1em;
+        padding: 0 10px;
+      }
+      .contact-container {
+        padding: 15px;
       }
     }
   </style>
@@ -324,7 +363,7 @@
       <div class="event">
         <h3>Atelier Artistique</h3>
         <p>Participez à nos ateliers artistiques qui incluent de la musique, des parties d'échecs, des jeux et bien d'autres activités ludiques pour stimuler votre créativité.</p>
-         <img src="images/atelier1.jpg" alt="Atelier Musical" class="atelier-img" loading="lazy">
+        <img src="images/atelier1.jpg" alt="Atelier Musical" class="atelier-img" loading="lazy">
       </div>
       <div class="event">
         <h3>Atelier Musical</h3>
