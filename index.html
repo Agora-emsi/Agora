@@ -5,61 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Club Agora - EMSI Marrakech, votre passerelle vers la créativité et la culture. Découvrez nos événements, notre équipe et contactez-nous !">
   <title>Club Agora - EMSI</title>
+  
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Animate.css for animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  
   <style>
-    /* General Styles */
+    /* Reset and Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: "Times New Roman", serif;
-      margin: 0;
       background-color: #e8f5e9;
       color: #333;
-      scroll-behavior: smooth;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
     a {
       text-decoration: none;
       color: #1b5e20;
+      transition: color 0.3s ease-in-out;
     }
-    a:hover {
+    a:hover, a:focus {
       text-decoration: underline;
+      color: #155a14;
     }
     
     /* Header */
     header {
       background-color: #1b5e20;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      color: #fff;
       padding: 20px;
+      text-align: center;
     }
     .header-logos {
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      gap: 20px;
       margin-bottom: 10px;
     }
     .header-logos img {
-      margin: 0 20px;
+      max-width: 100%;
+      height: auto;
     }
     .logo-agora {
       max-height: 60px;
-      width: auto;
     }
     .logo-emsi {
       max-height: 50px;
-      width: auto;
-    }
-    .header-content {
-      text-align: center;
     }
     .header-content h1 {
-      margin: 0;
-      font-size: 2.5em;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .header-content p {
+      font-size: 1.2rem;
     }
     
     /* Navigation */
@@ -67,21 +72,22 @@
       background-color: #2e7d32;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       padding: 10px 0;
     }
     nav a {
-      color: white;
       padding: 10px 20px;
-      transition: background-color 0.3s;
-    }
-    nav a:hover {
-      background-color: #1b5e20;
+      color: #fff;
+      font-size: 1rem;
     }
     
-    /* Main Content Area */
+    /* Main Content */
     main {
       padding: 60px 20px;
       text-align: center;
+    }
+    main section {
+      padding: 40px 0;
     }
     main section:nth-of-type(even) {
       background-color: #f1f8e9;
@@ -92,13 +98,13 @@
       margin-bottom: 20px;
     }
     p {
-      font-size: 1.1em;
+      font-size: 1.1rem;
       max-width: 800px;
       margin: 0 auto 20px;
     }
     blockquote {
       font-style: italic;
-      font-size: 1.2em;
+      font-size: 1.2rem;
       color: #555;
       border-left: 4px solid #1b5e20;
       margin: 20px auto;
@@ -109,14 +115,15 @@
     /* Events */
     .event {
       margin-bottom: 40px;
+      padding: 20px;
     }
     .event h3 {
       color: #2e7d32;
-      font-size: 1.5em;
+      font-size: 1.5rem;
       margin-bottom: 10px;
     }
     .event p {
-      font-size: 1em;
+      font-size: 1rem;
     }
     .event img.event-img {
       width: 100%;
@@ -126,14 +133,13 @@
       display: block;
     }
     
-    /* Atelier Musical Video & Image Styles */
+    /* Atelier Video & Image */
     video.atelier-video {
       width: 100%;
       max-width: 50%;
       display: block;
       margin: 0 auto 20px;
       border: none;
-      background: transparent;
     }
     img.atelier-img {
       width: 70%;
@@ -149,30 +155,30 @@
       align-items: center;
     }
     .team img {
+      width: 100%;
       max-width: 80%;
       height: auto;
       border-radius: 8px;
       margin-bottom: 20px;
     }
     .leaders {
-      list-style-type: none;
-      padding: 0;
+      list-style: none;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 10px;
     }
     .leaders li {
-      margin: 5px 15px;
       font-weight: bold;
       color: #1b5e20;
     }
     
-    /* Contact & Custom Form Styles */
+    /* Contact Section */
     .contact-container {
       max-width: 640px;
       margin: 0 auto;
       padding: 20px;
-      background: #f1f8e9;
+      background-color: #f1f8e9;
       border-radius: 8px;
     }
     .contact-container form {
@@ -180,116 +186,150 @@
       flex-direction: column;
       gap: 10px;
     }
-    .contact-container input, 
+    .contact-container input,
     .contact-container textarea {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      font-size: 1em;
+      font-size: 1rem;
     }
     .contact-container button {
       padding: 10px;
       background-color: #1b5e20;
-      color: white;
+      color: #fff;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 1em;
+      font-size: 1rem;
+      transition: background-color 0.3s;
     }
-    .contact-container button:hover {
+    .contact-container button:hover,
+    .contact-container button:focus {
       background-color: #155a14;
     }
     
-    .whatsapp {
-      margin-top: 20px;
+    .social-links {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .whatsapp p {
+      margin-bottom: 10px;
     }
     .whatsapp img {
       max-width: 300px;
+      width: 100%;
       height: auto;
-      margin-top: 10px;
     }
     
     /* Footer */
     footer {
       background-color: #1b5e20;
-      color: white;
+      color: #fff;
       text-align: center;
       padding: 20px 0;
-    }
-    .social-links a {
-      margin: 0 15px;
-      color: #008e00;
-      font-size: 1.2em;
-      transition: color 0.3s;
-    }
-    .social-links a:hover {
-      color: white;
-    }
-    .language-switch {
-      margin-top: 10px;
     }
     .language-switch a {
       margin: 0 10px;
       color: #a5d6a7;
       font-weight: bold;
+      transition: color 0.3s;
     }
-    .language-switch a:hover {
-      color: white;
+    .language-switch a:hover,
+    .language-switch a:focus {
+      color: #fff;
     }
     
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      /* Adjust navigation for smaller screens */
       nav {
         flex-direction: column;
-        align-items: center;
       }
       nav a {
         padding: 10px;
         margin: 5px 0;
       }
-      
-      /* Adjust header logos */
       .header-logos img {
-        margin: 0 10px;
         max-height: 50px;
       }
-      
-      /* Text and images scaling */
       .event img.event-img,
       video.atelier-video,
       img.atelier-img {
         max-width: 90%;
       }
-      
-      /* Adjust leaders section layout */
       .leaders {
         flex-direction: column;
       }
-      .leaders li {
-        margin: 5px 0;
-      }
-      
-      /* Reduce padding for main content */
       main {
         padding: 40px 10px;
       }
     }
     
     @media (max-width: 480px) {
-      /* Further adjustments for very small screens */
       header h1 {
-        font-size: 2em;
+      font-size: 2rem;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      animation: bounce 2s infinite;
       }
       h2 {
-        font-size: 1.75em;
+      font-size: 1.75rem;
+      font-family: "Pacifico", cursive;
+      animation: fadeIn 1.5s ease-in-out;
       }
       p, blockquote {
-        font-size: 1em;
-        padding: 0 10px;
+      font-size: 1rem;
+      padding: 0 10px;
+      font-family: "Caveat", cursive;
+      animation: slideIn 1s ease-in-out;
       }
       .contact-container {
-        padding: 15px;
+      padding: 15px;
+      font-family: "Indie Flower", cursive;
+      animation: zoomIn 1.5s ease-in-out;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+      }
+      40% {
+      transform: translateY(-20px);
+      }
+      60% {
+      transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+      opacity: 0;
+      }
+      to {
+      opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+      transform: translateX(-100%);
+      opacity: 0;
+      }
+      to {
+      transform: translateX(0);
+      opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+      transform: scale(0.5);
+      opacity: 0;
+      }
+      to {
+      transform: scale(1);
+      opacity: 1;
       }
     }
   </style>
@@ -321,12 +361,12 @@
     <!-- About Section -->
     <section id="about" class="animate__animated animate__fadeInUp animate__delay-1s">
       <h2>À Propos</h2>
-      <p>Le Club Agora est le club culturel de l'EMSI Marrakech, vous invitant à une aventure culturo-artistique enrichissante. Rejoignez-nous maintenant!</p>
+      <p>Le Club Agora est le club culturel de l'EMSI Marrakech, vous invitant à une aventure culturo-artistique enrichissante. Rejoignez-nous dès maintenant!</p>
     </section>
     
     <!-- Artistic Quote Section -->
     <section id="citation" class="animate__animated animate__fadeInUp animate__delay-1s">
-      <blockquote>
+      <blockquote aria-label="Artistic Quote">
         "L'art lave notre âme de la poussière du quotidien." – Pablo Picasso
       </blockquote>
     </section>
@@ -334,45 +374,52 @@
     <!-- Events Section -->
     <section id="events" class="animate__animated animate__fadeInUp animate__delay-1s">
       <h2>Événements</h2>
-      <div class="event">
+      
+      <article class="event">
         <h3>Journée Portes Ouvertes - 14 Mars</h3>
         <p>Notre club a organisé une journée portes ouvertes inoubliable en mars ! Rejoignez-nous pour vivre ces expériences.</p>
-      </div>
-      <div class="event">
+      </article>
+      
+      <article class="event">
         <h3>Journée des Femmes - 8 Mars</h3>
         <p>Le Club Agora a célébré la Journée Internationale de la Femme le 8 mars, mettant en lumière les réalisations des femmes et favorisant un échange enrichissant.</p>
         <img src="images/femmes.jpg" alt="Célébration de la Journée des Femmes" class="event-img" loading="lazy">
-      </div>
-      <div class="event">
+      </article>
+      
+      <article class="event">
         <h3>Participation au Festival International du Film de Marrakech 2019</h3>
         <p>
           Le Club Agora EMSI Marrakech a participé au Festival International du Film de Marrakech, offrant aux membres une expérience immersive dans le monde du cinéma. 
-          <a href="https://www.facebook.com/BDEREV/videos/participation-du-club-agora-emsi-marrakech-au-fifm/364350300788100/" target="_blank" class="voir-video">Voir la vidéo</a>
+          <a href="https://www.facebook.com/BDEREV/videos/participation-du-club-agora-emsi-marrakech-au-fifm/364350300788100/" target="_blank" rel="noopener">Voir la vidéo</a>
         </p>
-      </div>
-      <div class="event">
+      </article>
+      
+      <article class="event">
         <h3>EMSI Best Talent</h3>
         <p>
-          Le Club Agora a organisé le concours "EMSI Best Talent", mettant en valeur les compétences artistiques des étudiants. On vous invite à découvrir les talents de l'EMSI.
+          Le Club Agora a organisé le concours "EMSI Best Talent", mettant en valeur les compétences artistiques des étudiants. Venez découvrir les talents de l'EMSI.
         </p>
-      </div>
-      <div class="event">
+      </article>
+      
+      <article class="event">
         <h3>Semaine Culturelle En Avril</h3>
-        <p>Rejoignez-nous pour la Semaine Culturelle qui se déroulera à la mi-avril, avec des activités variées, des expositions et des performances artistiques.</p>
-      </div>
-      <div class="event">
+        <p>Rejoignez-nous pour la Semaine Culturelle à la mi-avril, avec des activités variées, des expositions et des performances artistiques.</p>
+      </article>
+      
+      <article class="event">
         <h3>Atelier Artistique</h3>
-        <p>Participez à nos ateliers artistiques qui incluent de la musique, des parties d'échecs, des jeux et bien d'autres activités ludiques pour stimuler votre créativité.</p>
-        <img src="images/atelier1.jpg" alt="Atelier Musical" class="atelier-img" loading="lazy">
-      </div>
-      <div class="event">
+        <p>Participez à nos ateliers artistiques comprenant musique, échecs, jeux et bien d'autres activités pour stimuler votre créativité.</p>
+        <img src="images/atelier1.jpg" alt="Atelier Artistique" class="atelier-img" loading="lazy">
+      </article>
+      
+      <article class="event">
         <h3>Atelier Musical</h3>
-        <p>Participez à nos ateliers musicaux qui allient créativité et performance. Retrouvez ici une vidéo illustrant l'atelier.</p>
+        <p>Participez à nos ateliers musicaux alliant créativité et performance. Visionnez la vidéo illustrant l'atelier.</p>
         <video class="atelier-video" controls>
           <source src="images/vid111.mp4" type="video/mp4">
           Votre navigateur ne supporte pas la lecture de vidéos.
         </video>
-      </div>
+      </article>
     </section>
     
     <!-- Team Section -->
@@ -381,7 +428,7 @@
       <div class="team">
         <img src="images/comite.jpg" alt="Photo des membres du club" loading="lazy">
         <h3>Les Leaders du Club</h3>
-        <ul class="leaders">
+        <ul class="leaders" aria-label="Liste des leaders">
           <li>Nada</li>
           <li>Khalil</li>
           <li>Mehdi</li>
@@ -401,8 +448,8 @@
       <h2>Contact</h2>
       <p>Suivez-nous sur nos réseaux sociaux pour rester informé de nos activités :</p>
       <div class="social-links">
-        <a href="https://www.instagram.com/club_agora_emsi" target="_blank">Instagram</a>
-        <a href="https://www.facebook.com/AGORAEMSI" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/club_agora_emsi" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/AGORAEMSI" target="_blank" rel="noopener">Facebook</a>
       </div>
       <div class="whatsapp">
         <p>Rejoignez notre groupe WhatsApp :</p>
@@ -410,11 +457,17 @@
       </div>
       <div class="contact-container">
         <h3>Envoyez-nous un message</h3>
-        <!-- Updated form using Formsubmit -->
+        <!-- Form submission via Formsubmit -->
         <form id="contactForm" action="https://formsubmit.co/nojy.qasbar@gmail.com" method="POST">
-          <input type="text" name="user_name" placeholder="Votre nom" required>
-          <input type="email" name="user_email" placeholder="Votre email" required>
-          <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+          <label for="user_name">Nom :</label>
+          <input type="text" id="user_name" name="user_name" placeholder="Votre nom" required>
+          
+          <label for="user_email">Email :</label>
+          <input type="email" id="user_email" name="user_email" placeholder="Votre email" required>
+          
+          <label for="message">Message :</label>
+          <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+          
           <button type="submit">Envoyer</button>
         </form>
       </div>
@@ -425,27 +478,29 @@
   <footer class="animate__animated animate__fadeInUp animate__delay-1s">
     <p>&copy; 2025 Club Agora - EMSI</p>
     <div class="language-switch">
-      <a href="#">Français</a>
+      <a href="#" title="Version française">Français</a>
     </div>
   </footer>
   
-  <!-- JavaScript for handling form submission using Formsubmit and smooth scrolling -->
+  <!-- JavaScript -->
   <script>
-    // Handle form submission with Formsubmit
+    // Form submission with Formsubmit using Fetch API
     document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();  // Prevent the default form submission
+      event.preventDefault(); // Prevent default form submission
       
       fetch(this.action, {
-        method: this.method,         // usually "POST"
-        body: new FormData(this)     // grab all form data
-      }).then(response => {
+        method: this.method,
+        body: new FormData(this)
+      })
+      .then(response => {
         if (response.ok) {
           alert('Message envoyé avec succès !');
-          this.reset();  // Optionally reset the form after success
+          this.reset();
         } else {
           alert('Échec de l’envoi du message. Veuillez réessayer plus tard.');
         }
-      }).catch(error => {
+      })
+      .catch(error => {
         alert('Échec de l’envoi du message. Veuillez réessayer plus tard.');
       });
     });
@@ -467,3 +522,170 @@
   </script>
 </body>
 </html>
+<!-- Back to Top Button -->
+<button id="backToTop" title="Retour en haut" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #1b5e20; color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; z-index: 1000;">↑</button>
+
+<script>
+  // Back to Top Button Functionality
+  const backToTopButton = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopButton.style.display = 'block';
+    } else {
+      backToTopButton.style.display = 'none';
+    }
+  });
+
+  backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Highlight Active Section in Navigation
+  const sections = document.querySelectorAll('main section');
+  const navLinks = document.querySelectorAll('nav a');
+
+  window.addEventListener('scroll', () => {
+    let currentSection = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 50;
+      if (window.scrollY >= sectionTop) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').substring(1) === currentSection) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // Add Tooltip to Back to Top Button
+  backToTopButton.addEventListener('mouseover', () => {
+    const tooltip = document.createElement('div');
+    tooltip.id = 'tooltip';
+    tooltip.textContent = 'Retour en haut';
+    tooltip.style.position = 'absolute';
+    tooltip.style.bottom = '70px';
+    tooltip.style.right = '20px';
+    tooltip.style.backgroundColor = '#1b5e20';
+    tooltip.style.color = '#fff';
+    tooltip.style.padding = '5px 10px';
+    tooltip.style.borderRadius = '5px';
+    tooltip.style.fontSize = '0.9rem';
+    tooltip.style.zIndex = '1001';
+    document.body.appendChild(tooltip);
+  });
+
+  backToTopButton.addEventListener('mouseout', () => {
+    const tooltip = document.getElementById('tooltip');
+    if (tooltip) {
+      tooltip.remove();
+    }
+  });
+</script>
+<script>
+  // Enhance animations using GSAP (GreenSock Animation Platform)
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animate header section
+    gsap.from('header', {
+      duration: 1.5,
+      y: -100,
+      opacity: 0,
+      ease: 'power4.out'
+    });
+
+    // Animate navigation links
+    gsap.from('nav a', {
+      duration: 1,
+      opacity: 0,
+      y: 20,
+      stagger: 0.2,
+      ease: 'power2.out'
+    });
+
+    // Animate sections on scroll
+    const sections = document.querySelectorAll('main section');
+    sections.forEach(section => {
+      gsap.from(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        },
+        duration: 1,
+        opacity: 0,
+        y: 50,
+        ease: 'power2.out'
+      });
+    });
+
+    // Animate footer
+    gsap.from('footer', {
+      scrollTrigger: {
+        trigger: 'footer',
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      },
+      duration: 1,
+      opacity: 0,
+      y: 50,
+      ease: 'power2.out'
+    });
+  });
+</script>
+
+<!-- Include GSAP and ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<!-- Add a floating action button for quick navigation -->
+<div id="quickNav" style="position: fixed; bottom: 80px; right: 20px; background-color: #2e7d32; color: #fff; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000;" title="Navigation rapide">
+  ☰
+</div>
+
+<script>
+  // Quick Navigation Button Functionality
+  const quickNavButton = document.getElementById('quickNav');
+  quickNavButton.addEventListener('click', () => {
+    const navMenu = document.createElement('div');
+    navMenu.id = 'navMenu';
+    navMenu.style.position = 'fixed';
+    navMenu.style.bottom = '150px';
+    navMenu.style.right = '20px';
+    navMenu.style.backgroundColor = '#fff';
+    navMenu.style.border = '1px solid #ccc';
+    navMenu.style.borderRadius = '8px';
+    navMenu.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    navMenu.style.padding = '10px';
+    navMenu.style.zIndex = '1001';
+
+    const navLinks = `
+      <a href="#about" style="display: block; margin: 5px 0; color: #2e7d32;">À Propos</a>
+      <a href="#citation" style="display: block; margin: 5px 0; color: #2e7d32;">Citation</a>
+      <a href="#events" style="display: block; margin: 5px 0; color: #2e7d32;">Événements</a>
+      <a href="#team" style="display: block; margin: 5px 0; color: #2e7d32;">Équipe</a>
+      <a href="#contact" style="display: block; margin: 5px 0; color: #2e7d32;">Contact</a>
+    `;
+
+    navMenu.innerHTML = navLinks;
+
+    // Remove existing menu if already open
+    const existingMenu = document.getElementById('navMenu');
+    if (existingMenu) {
+      existingMenu.remove();
+    } else {
+      document.body.appendChild(navMenu);
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!navMenu.contains(event.target) && event.target !== quickNavButton) {
+        navMenu.remove();
+      }
+    }, { once: true });
+  });
+</script>
