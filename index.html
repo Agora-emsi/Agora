@@ -74,7 +74,7 @@
       transform: translateX(-50%);
       width: 50%;
       height: 2px;
-      background-color: #a5d6a7; /* subtle line color */
+      background-color: #a5d6a7;
       border-radius: 1px;
       opacity: 0;
       transition: opacity 0.8s ease;
@@ -144,7 +144,7 @@
       transform: translateX(-50%);
       width: 70%;
       height: 2px;
-      background-color: #1b5e20; /* solid subtle color */
+      background-color: #1b5e20;
       border-radius: 1px;
     }
     p {
@@ -188,7 +188,7 @@
       transform: translateX(-50%);
       width: 40%;
       height: 1px;
-      background-color: #2e7d32; /* subtle line */
+      background-color: #2e7d32;
       border-radius: 1px;
     }
     .event p {
@@ -364,73 +364,6 @@
       }
       main {
         padding: 40px 10px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 2rem;
-        font-family: "Comic Sans MS", cursive, sans-serif;
-        animation: bounce 2s infinite;
-      }
-      h2 {
-        font-size: 1.75rem;
-        font-family: "Pacifico", cursive;
-        animation: fadeIn 1.5s ease-in-out;
-      }
-      p, blockquote {
-        font-size: 1rem;
-        padding: 0 10px;
-        font-family: "Caveat", cursive;
-        animation: slideIn 1s ease-in-out;
-      }
-      .contact-container {
-        padding: 15px;
-        font-family: "Indie Flower", cursive;
-        animation: zoomIn 1.5s ease-in-out;
-      }
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-20px);
-      }
-      60% {
-        transform: translateY(-10px);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes zoomIn {
-      from {
-        transform: scale(0.5);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
       }
     }
   </style>
