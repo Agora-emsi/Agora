@@ -342,7 +342,7 @@
       transform: scale(1.05) translateY(-5px);
     }
     
-    /* Responsive Adjustments */
+    /* Responsive Adjustments for Tablets and Above */
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -364,6 +364,38 @@
       }
       main {
         padding: 40px 10px;
+      }
+    }
+
+    /* Responsive Adjustments for Mobile (Below 480px)
+       – Adjust layout and spacing without altering fonts or animations */
+    @media (max-width: 480px) {
+      header {
+        padding: 15px;
+      }
+      .header-logos img {
+        max-height: 40px;
+      }
+      .header-content h1 {
+        font-size: 2.5rem; /* keep the same font-family and animation */
+      }
+      nav a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+      main {
+        padding: 30px 10px;
+      }
+      p, blockquote {
+        font-size: 1rem;
+      }
+      .event img.event-img,
+      video.atelier-video,
+      img.atelier-img {
+        max-width: 100%;
+      }
+      .contact-container {
+        padding: 15px;
       }
     }
   </style>
