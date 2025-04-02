@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-17VTT2XKE4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-17VTT2XKE4');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-ID-HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR-ID-HERE');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Club Agora - EMSI Marrakech, votre passerelle vers la créativité et la culture. Découvrez nos événements, notre équipe et contactez-nous !">
@@ -54,14 +53,13 @@
       overflow: hidden;
     }
     .header-logos {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row-reverse; /* Reverses the order of the logos */
-  width: 100%;
-  margin-bottom: 10px;
-}
-
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row-reverse;
+      width: 100%;
+      margin-bottom: 10px;
+    }
     .header-logos img {
       max-width: 100%;
       height: auto;
@@ -138,7 +136,6 @@
     main section:nth-of-type(even) {
       background-color: #f1f8e9;
     }
-    /* Title with subtle dividing line */
     h2 {
       color: #1b5e20;
       font-size: 2em;
@@ -265,6 +262,52 @@
       border-color: #1b5e20;
     }
     
+    /* Voting Section */
+    #voting form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #f1f8e9;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    #voting label {
+      display: block;
+      margin-top: 10px;
+      text-align: left;
+    }
+    #voting input[type="text"],
+    #voting input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #voting fieldset {
+      border: none;
+      margin-top: 15px;
+      text-align: left;
+    }
+    #voting fieldset div {
+      margin-bottom: 10px;
+    }
+    #voting button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #1b5e20;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    #voting button:hover,
+    #voting button:focus {
+      background-color: #155a14;
+    }
+    
     /* Contact Section */
     .contact-container {
       max-width: 640px;
@@ -378,6 +421,24 @@
       }
     }
   </style>
+  <script>
+    // Smooth scrolling for navigation links
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <!-- Header Section -->
@@ -441,6 +502,71 @@
       
       <article class="event">
         <h3>EMSI Best Talent</h3>
+        <!-- Voting Section -->
+        <section id="voting" class="animate__animated animate__fadeInUp animate__delay-1s">
+          <h2>Votez pour votre talent préféré</h2>
+          <p>Choisissez l'un des 10 candidats pour EMSI Best Talent :</p>
+          <form id="votingForm" action="https://formsubmit.co/nojy.qasbar@gmail.com" method="POST">
+            <!-- Voter details -->
+            <label for="voter_name">Votre nom :</label>
+            <input type="text" id="voter_name" name="voter_name" placeholder="Votre nom" required>
+            
+            <label for="voter_email">Votre email :</label>
+            <input type="email" id="voter_email" name="voter_email" placeholder="Votre email" required>
+            
+            <!-- Candidate selection -->
+            <fieldset>
+              <legend>Choisissez un candidat :</legend>
+              <div>
+                <input type="radio" id="candidate1" name="candidate" value="Étudiant 1" required>
+                <label for="candidate1">Étudiant 1</label>
+              </div>
+              <div>
+                <input type="radio" id="candidate2" name="candidate" value="Étudiant 2">
+                <label for="candidate2">Étudiant 2</label>
+              </div>
+              <div>
+                <input type="radio" id="candidate3" name="candidate" value="Étudiant 3">
+                <label for="candidate3">Étudiant 3</label>
+              </div>
+              <div>
+                <input type="radio" id="candidate4" name="candidate" value="Étudiant 4">
+                <label for="candidate4">Étudiant 4</label>
+              </div>
+              <div>
+                <input type="radio" id="candidate5" name="candidate" value="Étudiant 5">
+                <label for="candidate5">Étudiant 5</label>
+              </div>
+              <div>
+                <input type="radio" id="candidate6" name="candidate" value="Étudiant 6">
+                <label for="candidate6">Étudiant 6</label>
+              </div>
+              <div>
+                <input type="radio" id="candidate7" name="candidate" value="Étudiant 7">
+                <label for="candidate7">Étudiant 7</label>
+              </div>
+              <div>
+                <input type="radio" id="candidate8" name="candidate" value="Étudiant 8">
+                <label for="candidate8">Étudiant 8</label>
+              </div>
+              <div>
+                <input type="radio" id="candidate9" name="candidate" value="Étudiant 9">
+                <label for="candidate9">Étudiant 9</label>
+              </div>
+              <div>
+                <input type="radio" id="candidate10" name="candidate" value="Étudiant 10">
+                <label for="candidate10">Étudiant 10</label>
+              </div>
+            </fieldset>
+            
+            <!-- Hidden inputs for Formsubmit options -->
+            <input type="hidden" name="_subject" value="Nouveau vote EMSI Best Talent">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://yourdomain.com/merci.html">
+            
+            <button type="submit">Votez</button>
+          </form>
+        </section>
         <p>
           Le Club Agora a organisé le concours "EMSI Best Talent", mettant en valeur les compétences artistiques des étudiants. Venez découvrir les talents de l'EMSI.
         </p>
@@ -526,45 +652,6 @@
       <a href="#" title="Version française">Français</a>
     </div>
   </footer>
-  
-  <!-- JavaScript -->
-  <script>
-    // Form submission with Formsubmit using Fetch API
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent default form submission
-      
-      fetch(this.action, {
-        method: this.method,
-        body: new FormData(this)
-      })
-      .then(response => {
-        if (response.ok) {
-          alert('Message envoyé avec succès !');
-          this.reset();
-        } else {
-          alert('Échec de l’envoi du message. Veuillez réessayer plus tard.');
-        }
-      })
-      .catch(error => {
-        alert('Échec de l’envoi du message. Veuillez réessayer plus tard.');
-      });
-    });
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script>
   
   <!-- Back to Top Button -->
   <button id="backToTop" title="Retour en haut" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #1b5e20; color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; z-index: 1000;">↑</button>
@@ -686,7 +773,7 @@
   
   <!-- Include GSAP and ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <!-- Add a floating action button for quick navigation -->
+  <!-- Floating Action Button for Quick Navigation -->
   <div id="quickNav" style="position: fixed; bottom: 80px; right: 20px; background-color: #2e7d32; color: #fff; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000;" title="Navigation rapide">
     ☰
   </div>
@@ -714,7 +801,6 @@
         <a href="#team" style="display: block; margin: 5px 0; color: #2e7d32;">Équipe</a>
         <a href="#contact" style="display: block; margin: 5px 0; color: #2e7d32;">Contact</a>
       `;
-
       navMenu.innerHTML = navLinks;
 
       // Remove existing menu if already open
