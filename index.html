@@ -18,6 +18,8 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Animate.css for animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   
   <style>
     /* Reset and Base Styles */
@@ -262,50 +264,87 @@
       border-color: #1b5e20;
     }
     
-    /* Voting Section */
-    #voting form {
+    /* Voting Section - Updated Styling */
+    #voting {
+      font-family: 'Roboto', sans-serif;
+      background: #ffffff;
+      padding: 30px;
+      margin: 40px auto;
       max-width: 600px;
-      margin: 0 auto;
-      background-color: #f1f8e9;
-      padding: 20px;
+      border: 1px solid #e0e0e0;
       border-radius: 8px;
-      border: 1px solid #ccc;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    #voting:hover {
+      transform: scale(1.02);
+    }
+    #voting h2 {
+      font-size: 2rem;
+      color: #2e7d32;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #voting form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
     #voting label {
-      display: block;
-      margin-top: 10px;
-      text-align: left;
+      font-weight: 500;
+      color: #333;
     }
     #voting input[type="text"],
     #voting input[type="email"] {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 4px;
-    }
-    #voting fieldset {
-      border: none;
-      margin-top: 15px;
-      text-align: left;
-    }
-    #voting fieldset div {
-      margin-bottom: 10px;
+      font-size: 1rem;
     }
     #voting button {
-      margin-top: 15px;
-      padding: 10px 20px;
+      padding: 12px;
       background-color: #1b5e20;
       color: #fff;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
     }
     #voting button:hover,
     #voting button:focus {
       background-color: #155a14;
+    }
+    /* Candidate Styling */
+    .candidate {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .candidate:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .candidate img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #2e7d32;
+    }
+    .candidate input[type="radio"] {
+      margin: 0;
+    }
+    .candidate label {
+      cursor: pointer;
+      font-size: 1rem;
+      color: #2e7d32;
+      flex: 1;
     }
     
     /* Contact Section */
@@ -348,6 +387,7 @@
       background-color: #155a14;
     }
     
+    /* Social Links */
     .social-links {
       margin: 20px 0;
       display: flex;
@@ -396,6 +436,27 @@
       transform: scale(1.05) translateY(-5px);
     }
     
+    /* Music Toggle Button */
+    #musicToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #1b5e20;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1100;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    #musicToggle:hover {
+      background-color: #155a14;
+    }
+    
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       nav {
@@ -421,6 +482,7 @@
       }
     }
   </style>
+  
   <script>
     // Smooth scrolling for navigation links
     document.addEventListener('DOMContentLoaded', function() {
@@ -441,6 +503,12 @@
   </script>
 </head>
 <body>
+  <!-- Background Music Element -->
+  <audio id="bg-music" src="images/sultans.mp3" loop></audio>
+  
+  <!-- Music Toggle Button -->
+  <button id="musicToggle" title="Toggle Music">&#9835;</button>
+  
   <!-- Header Section -->
   <header class="animate__animated animate__fadeInDown">
     <div class="header-logos">
@@ -500,9 +568,9 @@
         </p>
       </article>
       
+      <!-- Voting Section -->
       <article class="event">
         <h3>EMSI Best Talent</h3>
-        <!-- Voting Section -->
         <section id="voting" class="animate__animated animate__fadeInUp animate__delay-1s">
           <h2>Votez pour votre talent préféré</h2>
           <p>Choisissez l'un des 10 candidats pour EMSI Best Talent :</p>
@@ -515,47 +583,87 @@
             <input type="email" id="voter_email" name="voter_email" placeholder="Votre email" required>
             
             <!-- Candidate selection -->
-            <fieldset>
-              <legend>Choisissez un candidat :</legend>
-              <div>
+            <fieldset style="border: none; margin-top: 15px;">
+              <legend style="font-weight: 700; color: #2e7d32; margin-bottom: 10px;">Choisissez un candidat :</legend>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate1" name="candidate" value="Étudiant 1" required>
-                <label for="candidate1">Étudiant 1</label>
+                <label for="candidate1">
+                  <img src="images/candidate1.jpg" alt="Étudiant 1">
+                  Étudiant 1
+                </label>
               </div>
-              <div>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate2" name="candidate" value="Étudiant 2">
-                <label for="candidate2">Étudiant 2</label>
+                <label for="candidate2">
+                  <img src="images/candidate2.jpg" alt="Étudiant 2">
+                  Étudiant 2
+                </label>
               </div>
-              <div>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate3" name="candidate" value="Étudiant 3">
-                <label for="candidate3">Étudiant 3</label>
+                <label for="candidate3">
+                  <img src="images/candidate3.jpg" alt="Étudiant 3">
+                  Étudiant 3
+                </label>
               </div>
-              <div>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate4" name="candidate" value="Étudiant 4">
-                <label for="candidate4">Étudiant 4</label>
+                <label for="candidate4">
+                  <img src="images/candidate4.jpg" alt="Étudiant 4">
+                  Étudiant 4
+                </label>
               </div>
-              <div>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate5" name="candidate" value="Étudiant 5">
-                <label for="candidate5">Étudiant 5</label>
+                <label for="candidate5">
+                  <img src="images/candidate5.jpg" alt="Étudiant 5">
+                  Étudiant 5
+                </label>
               </div>
-              <div>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate6" name="candidate" value="Étudiant 6">
-                <label for="candidate6">Étudiant 6</label>
+                <label for="candidate6">
+                  <img src="images/candidate6.jpg" alt="Étudiant 6">
+                  Étudiant 6
+                </label>
               </div>
-              <div>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate7" name="candidate" value="Étudiant 7">
-                <label for="candidate7">Étudiant 7</label>
+                <label for="candidate7">
+                  <img src="images/candidate7.jpg" alt="Étudiant 7">
+                  Étudiant 7
+                </label>
               </div>
-              <div>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate8" name="candidate" value="Étudiant 8">
-                <label for="candidate8">Étudiant 8</label>
+                <label for="candidate8">
+                  <img src="images/candidate8.jpg" alt="Étudiant 8">
+                  Étudiant 8
+                </label>
               </div>
-              <div>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate9" name="candidate" value="Étudiant 9">
-                <label for="candidate9">Étudiant 9</label>
+                <label for="candidate9">
+                  <img src="images/candidate9.jpg" alt="Étudiant 9">
+                  Étudiant 9
+                </label>
               </div>
-              <div>
+              
+              <div class="candidate">
                 <input type="radio" id="candidate10" name="candidate" value="Étudiant 10">
-                <label for="candidate10">Étudiant 10</label>
+                <label for="candidate10">
+                  <img src="images/candidate10.jpg" alt="Étudiant 10">
+                  Étudiant 10
+                </label>
               </div>
             </fieldset>
             
@@ -628,7 +736,6 @@
       </div>
       <div class="contact-container">
         <h3>Envoyez-nous un message</h3>
-        <!-- Form submission via Formsubmit -->
         <form id="contactForm" action="https://formsubmit.co/nojy.qasbar@gmail.com" method="POST">
           <label for="user_name">Nom :</label>
           <input type="text" id="user_name" name="user_name" placeholder="Votre nom" required>
@@ -655,18 +762,29 @@
   
   <!-- Back to Top Button -->
   <button id="backToTop" title="Retour en haut" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #1b5e20; color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; z-index: 1000;">↑</button>
+  
   <script>
-    // Back to Top Button Functionality
-    const backToTopButton = document.getElementById('backToTop');
+    // Music Toggle Functionality
+    const musicToggle = document.getElementById('musicToggle');
+    const bgMusic = document.getElementById('bg-music');
+    let isPlaying = false;
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopButton.style.display = 'block';
+    musicToggle.addEventListener('click', () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicToggle.innerHTML = "&#9835;";
       } else {
-        backToTopButton.style.display = 'none';
+        bgMusic.play();
+        musicToggle.innerHTML = "&#10074;&#10074;";
       }
+      isPlaying = !isPlaying;
     });
 
+    // Back to Top Button Functionality
+    const backToTopButton = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTopButton.style.display = (window.scrollY > 300) ? 'block' : 'none';
+    });
     backToTopButton.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
@@ -677,7 +795,6 @@
     // Highlight Active Section in Navigation
     const sections = document.querySelectorAll('main section');
     const navLinks = document.querySelectorAll('nav a');
-
     window.addEventListener('scroll', () => {
       let currentSection = '';
       sections.forEach(section => {
@@ -686,7 +803,6 @@
           currentSection = section.getAttribute('id');
         }
       });
-
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').substring(1) === currentSection) {
@@ -711,27 +827,21 @@
       tooltip.style.zIndex = '1001';
       document.body.appendChild(tooltip);
     });
-
     backToTopButton.addEventListener('mouseout', () => {
       const tooltip = document.getElementById('tooltip');
       if (tooltip) {
         tooltip.remove();
       }
     });
-  </script>
-  
-  <!-- Enhance animations using GSAP (GreenSock Animation Platform) -->
-  <script>
+
+    // Animate Elements using GSAP
     document.addEventListener('DOMContentLoaded', () => {
-      // Animate header section
       gsap.from('header', {
         duration: 1.5,
         y: -100,
         opacity: 0,
         ease: 'power4.out'
       });
-
-      // Animate navigation links
       gsap.from('nav a', {
         duration: 1,
         opacity: 0,
@@ -739,8 +849,6 @@
         stagger: 0.2,
         ease: 'power2.out'
       });
-
-      // Animate sections on scroll
       const sections = document.querySelectorAll('main section');
       sections.forEach(section => {
         gsap.from(section, {
@@ -755,8 +863,6 @@
           ease: 'power2.out'
         });
       });
-
-      // Animate footer
       gsap.from('footer', {
         scrollTrigger: {
           trigger: 'footer',
@@ -773,51 +879,7 @@
   
   <!-- Include GSAP and ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <!-- Floating Action Button for Quick Navigation -->
-  <div id="quickNav" style="position: fixed; bottom: 80px; right: 20px; background-color: #2e7d32; color: #fff; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000;" title="Navigation rapide">
-    ☰
-  </div>
-
-  <script>
-    // Quick Navigation Button Functionality
-    const quickNavButton = document.getElementById('quickNav');
-    quickNavButton.addEventListener('click', () => {
-      const navMenu = document.createElement('div');
-      navMenu.id = 'navMenu';
-      navMenu.style.position = 'fixed';
-      navMenu.style.bottom = '150px';
-      navMenu.style.right = '20px';
-      navMenu.style.backgroundColor = '#fff';
-      navMenu.style.border = '1px solid #ccc';
-      navMenu.style.borderRadius = '8px';
-      navMenu.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
-      navMenu.style.padding = '10px';
-      navMenu.style.zIndex = '1001';
-
-      const navLinks = `
-        <a href="#about" style="display: block; margin: 5px 0; color: #2e7d32;">À Propos</a>
-        <a href="#citation" style="display: block; margin: 5px 0; color: #2e7d32;">Citation</a>
-        <a href="#events" style="display: block; margin: 5px 0; color: #2e7d32;">Événements</a>
-        <a href="#team" style="display: block; margin: 5px 0; color: #2e7d32;">Équipe</a>
-        <a href="#contact" style="display: block; margin: 5px 0; color: #2e7d32;">Contact</a>
-      `;
-      navMenu.innerHTML = navLinks;
-
-      // Remove existing menu if already open
-      const existingMenu = document.getElementById('navMenu');
-      if (existingMenu) {
-        existingMenu.remove();
-      } else {
-        document.body.appendChild(navMenu);
-      }
-
-      // Close menu when clicking outside
-      document.addEventListener('click', (event) => {
-        if (!navMenu.contains(event.target) && event.target !== quickNavButton) {
-          navMenu.remove();
-        }
-      }, { once: true });
-    });
-  </script>
 </body>
 </html>
+<!-- End of HTML Document -->
+ 
