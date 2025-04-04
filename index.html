@@ -9,6 +9,7 @@
     gtag('js', new Date());
     gtag('config', 'YOUR-ID-HERE');
   </script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Club Agora - EMSI Marrakech, votre passerelle vers la créativité et la culture. Découvrez nos événements, notre équipe et contactez-nous !">
@@ -487,8 +488,13 @@
       main {
         padding: 40px 10px;
       }
-      /* Adjust Easter Egg Button for smaller screens */
+      /* Reposition Easter Egg Button for mobile */
       #easterEgg {
+        top: auto;
+        bottom: 20px;
+        left: auto;
+        right: 20px;
+        transform: none;
         padding: 8px 12px;
         font-size: 0.9rem;
       }
@@ -525,7 +531,7 @@
   <button id="easterEgg" title="Cliquez pour une surprise !">Cliquez moi!</button>
   
   <!-- Modal for Fun Fact -->
-  <div id="modalOverlay">
+  <div id="modalOverlay" aria-modal="true" role="dialog">
     <div id="modal">
       <h2>Le Savez Vous?</h2>
       <p>Le Club Agora va organiser un <b>ESCAPE GAME</b> entre le 21 et 25 avril !</p>
@@ -742,7 +748,7 @@
       modalOverlay.style.display = 'none';
     });
     
-    // Add Tooltip to Back to Top Button
+    // Tooltip for Back to Top Button
     backToTopButton.addEventListener('mouseover', () => {
       const tooltip = document.createElement('div');
       tooltip.id = 'tooltip';
