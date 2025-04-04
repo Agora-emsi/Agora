@@ -9,7 +9,6 @@
     gtag('js', new Date());
     gtag('config', 'YOUR-ID-HERE');
   </script>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Club Agora - EMSI Marrakech, votre passerelle vers la créativité et la culture. Découvrez nos événements, notre équipe et contactez-nous !">
@@ -376,11 +375,11 @@
     }
     
     /* Easter Egg Button */
-    /* This button appears at the top right only when the page loads */
     #easterEgg {
-      position: fixed;
-      top: 20px;
-      right: 20px;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: #fff;
       background-color: rgb(255, 0, 0);
       border-radius: 8px;
@@ -390,7 +389,62 @@
       cursor: pointer;
       z-index: 1100;
       box-shadow: 0 4px 8px rgba(159, 159, 159, 0.471);
-      transition: opacity 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      animation: fadeIn 2s ease-in-out forwards, hoverDown 2s ease-in-out infinite alternate;
+      opacity: 0;
+    }
+    
+    @keyframes hoverDown {
+      0% {
+        transform: translate(-50%, -50%) translateY(0);
+      }
+      100% {
+        transform: translate(-50%, -50%) translateY(10px);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    /* Modal Styles */
+    #modalOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+    }
+    #modal {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    #modal button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #1b5e20;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #modal button:hover {
+      background-color: #155a14;
     }
     
     /* Back to Top Button */
@@ -433,6 +487,11 @@
       main {
         padding: 40px 10px;
       }
+      /* Adjust Easter Egg Button for smaller screens */
+      #easterEgg {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
     }
   </style>
   
@@ -462,11 +521,11 @@
   <!-- Music Toggle Button -->
   <button id="musicToggle" title="Toggle Music">&#9835;</button>
   
-  <!-- Easter Egg Button (visible at the top only) -->
+  <!-- Easter Egg Button -->
   <button id="easterEgg" title="Cliquez pour une surprise !">Cliquez moi!</button>
   
   <!-- Modal for Fun Fact -->
-  <div id="modalOverlay" aria-modal="true" role="dialog" style="display: none;">
+  <div id="modalOverlay">
     <div id="modal">
       <h2>Le Savez Vous?</h2>
       <p>Le Club Agora va organiser un <b>ESCAPE GAME</b> entre le 21 et 25 avril !</p>
@@ -648,14 +707,23 @@
       });
     });
     
-    // Hide the Easter Egg Button after scrolling down 20px
-    window.addEventListener('scroll', function() {
-      const easterEgg = document.getElementById('easterEgg');
-      if (window.scrollY > 20) {
-        easterEgg.style.opacity = '0';
-      } else {
-        easterEgg.style.opacity = '1';
-      }
+    // Highlight Active Section in Navigation
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 50;
+        if (window.scrollY >= sectionTop) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === currentSection) {
+          link.classList.add('active');
+        }
+      });
     });
     
     // Easter Egg Modal and Confetti
@@ -670,13 +738,11 @@
         origin: { y: 0.6 }
       });
     });
-    if (closeModal) {
-      closeModal.addEventListener('click', () => {
-        modalOverlay.style.display = 'none';
-      });
-    }
+    closeModal.addEventListener('click', () => {
+      modalOverlay.style.display = 'none';
+    });
     
-    // Tooltip for Back to Top Button
+    // Add Tooltip to Back to Top Button
     backToTopButton.addEventListener('mouseover', () => {
       const tooltip = document.createElement('div');
       tooltip.id = 'tooltip';
@@ -743,3 +809,36 @@
   </script>
 </body>
 </html>
+<style>
+  /* Remove responsive adjustments for smaller screens */
+  @media (max-width: 1024px) {
+    body {
+      overflow: hidden;
+    }
+    nav {
+      flex-direction: row;
+    }
+    nav a {
+      padding: 10px 20px;
+      margin: 0;
+    }
+    .header-logos img {
+      max-height: 60px;
+    }
+    .event img.event-img,
+    video.atelier-video,
+    img.atelier-img {
+      max-width: 60%;
+    }
+    .leaders {
+      flex-direction: row;
+    }
+    main {
+      padding: 60px 20px;
+    }
+    #easterEgg {
+      padding: 10px 15px;
+      font-size: 1rem;
+    }
+  }
+</style></style>
