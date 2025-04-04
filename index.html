@@ -73,7 +73,7 @@
       max-height: 50px;
     }
     .header-content h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 0.5rem;
       position: relative;
     }
@@ -83,8 +83,8 @@
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 50%;
-      height: 2px;
+      width: 60%;
+      height: 3px;
       background-color: #a5d6a7;
       border-radius: 1px;
       opacity: 0;
@@ -94,7 +94,7 @@
       opacity: 1;
     }
     .header-content p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
     
     /* Navigation */
@@ -214,7 +214,7 @@
       border-radius: 4px;
     }
     
-    /* Atelier Video & Image */
+    /* Workshop Section */
     video.atelier-video {
       width: 100%;
       max-width: 50%;
@@ -262,89 +262,6 @@
     }
     .leaders li:hover {
       border-color: #1b5e20;
-    }
-    
-    /* Voting Section - Updated Styling */
-    #voting {
-      font-family: 'Roboto', sans-serif;
-      background: #ffffff;
-      padding: 30px;
-      margin: 40px auto;
-      max-width: 600px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      box-shadow: 0 6px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    #voting:hover {
-      transform: scale(1.02);
-    }
-    #voting h2 {
-      font-size: 2rem;
-      color: #2e7d32;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    #voting form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    #voting label {
-      font-weight: 500;
-      color: #333;
-    }
-    #voting input[type="text"],
-    #voting input[type="email"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    #voting button {
-      padding: 12px;
-      background-color: #1b5e20;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background-color 0.3s ease;
-    }
-    #voting button:hover,
-    #voting button:focus {
-      background-color: #155a14;
-    }
-    /* Candidate Styling */
-    .candidate {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .candidate:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-    .candidate img {
-      width: 50px;
-      height: 50px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #2e7d32;
-    }
-    .candidate input[type="radio"] {
-      margin: 0;
-    }
-    .candidate label {
-      cursor: pointer;
-      font-size: 1rem;
-      color: #2e7d32;
-      flex: 1;
     }
     
     /* Contact Section */
@@ -439,9 +356,9 @@
     /* Music Toggle Button */
     #musicToggle {
       position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: #1b5e20;
+      bottom: 20px;
+      left: 20px;
+      background-color: #318b37;
       color: #fff;
       border: none;
       border-radius: 50%;
@@ -457,6 +374,103 @@
       background-color: #155a14;
     }
     
+    /* Easter Egg Button */
+    #easterEgg {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      right: 46%;
+      top: 45%;
+      color: #fff;
+      background-color: green;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-size: 1rem;
+      font-style: italic;
+      cursor: pointer;
+      z-index: 1100;
+      box-shadow: 0 4px 8px rgba(159, 159, 159, 0.471);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      animation: pulse 1.5s infinite;
+    }
+
+    #easterEgg:hover {
+      background-color: #fb0000;
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 4px 8px rgba(159, 159, 159, 0.471);
+      }
+      50% {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(159, 159, 159, 0.6);
+      }
+    }
+    #easterEgg:hover {
+      background-color: #fb0000;
+    }
+    #easterEgg {
+      animation: hoverDown 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes hoverDown {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(10px);
+      }
+    }
+    /* Modal Styles */
+    #modalOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+    }
+    #modal {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    #modal button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #1b5e20;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #modal button:hover {
+      background-color: #155a14;
+    }
+    #easterEgg {
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards, hoverDown 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       nav {
@@ -509,6 +523,18 @@
   <!-- Music Toggle Button -->
   <button id="musicToggle" title="Toggle Music">&#9835;</button>
   
+  <!-- Easter Egg Button -->
+  <button id="easterEgg" title="Cliquez pour une surprise !">Cliquez moi!</button>
+  
+  <!-- Modal for Fun Fact -->
+  <div id="modalOverlay">
+    <div id="modal">
+      <h2>Le Savez Vous?</h2>
+      <p>Le Club Agora va organisez une <b>ESCAPE GAME</b> entre le 21 et 25 avril !</p>
+      <button id="closeModal">Fermer</button>
+    </div>
+  </div>
+  
   <!-- Header Section -->
   <header class="animate__animated animate__fadeInDown">
     <div class="header-logos">
@@ -522,7 +548,7 @@
   </header>
   
   <!-- Navigation -->
-  <nav class="animate__animated animate__fadeInDown animate__delay-2s">
+  <nav class="animate__animated animate__fadeInDown animate__delay-2s" aria-label="Main Navigation">
     <a href="#about">À Propos</a>
     <a href="#citation">Citation</a>
     <a href="#events">Événements</a>
@@ -565,118 +591,6 @@
         <p>
           Le Club Agora EMSI Marrakech a participé au Festival International du Film de Marrakech, offrant aux membres une expérience immersive dans le monde du cinéma. 
           <a href="https://www.facebook.com/BDEREV/videos/participation-du-club-agora-emsi-marrakech-au-fifm/364350300788100/" target="_blank" rel="noopener">Voir la vidéo</a>
-        </p>
-      </article>
-      
-      <!-- Voting Section -->
-      <article class="event">
-        <h3>EMSI Best Talent</h3>
-        <section id="voting" class="animate__animated animate__fadeInUp animate__delay-1s">
-          <h2>Votez pour votre talent préféré</h2>
-          <p>Choisissez l'un des 10 candidats pour EMSI Best Talent :</p>
-          <form id="votingForm" action="https://formsubmit.co/nojy.qasbar@gmail.com" method="POST">
-            <!-- Voter details -->
-            <label for="voter_name">Votre nom :</label>
-            <input type="text" id="voter_name" name="voter_name" placeholder="Votre nom" required>
-            
-            <label for="voter_email">Votre email :</label>
-            <input type="email" id="voter_email" name="voter_email" placeholder="Votre email" required>
-            
-            <!-- Candidate selection -->
-            <fieldset style="border: none; margin-top: 15px;">
-              <legend style="font-weight: 700; color: #2e7d32; margin-bottom: 10px;">Choisissez un candidat :</legend>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate1" name="candidate" value="Étudiant 1" required>
-                <label for="candidate1">
-                  <img src="images/candidate1.jpg" alt="Étudiant 1">
-                  Étudiant 1
-                </label>
-              </div>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate2" name="candidate" value="Étudiant 2">
-                <label for="candidate2">
-                  <img src="images/candidate2.jpg" alt="Étudiant 2">
-                  Étudiant 2
-                </label>
-              </div>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate3" name="candidate" value="Étudiant 3">
-                <label for="candidate3">
-                  <img src="images/candidate3.jpg" alt="Étudiant 3">
-                  Étudiant 3
-                </label>
-              </div>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate4" name="candidate" value="Étudiant 4">
-                <label for="candidate4">
-                  <img src="images/candidate4.jpg" alt="Étudiant 4">
-                  Étudiant 4
-                </label>
-              </div>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate5" name="candidate" value="Étudiant 5">
-                <label for="candidate5">
-                  <img src="images/candidate5.jpg" alt="Étudiant 5">
-                  Étudiant 5
-                </label>
-              </div>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate6" name="candidate" value="Étudiant 6">
-                <label for="candidate6">
-                  <img src="images/candidate6.jpg" alt="Étudiant 6">
-                  Étudiant 6
-                </label>
-              </div>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate7" name="candidate" value="Étudiant 7">
-                <label for="candidate7">
-                  <img src="images/candidate7.jpg" alt="Étudiant 7">
-                  Étudiant 7
-                </label>
-              </div>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate8" name="candidate" value="Étudiant 8">
-                <label for="candidate8">
-                  <img src="images/candidate8.jpg" alt="Étudiant 8">
-                  Étudiant 8
-                </label>
-              </div>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate9" name="candidate" value="Étudiant 9">
-                <label for="candidate9">
-                  <img src="images/candidate9.jpg" alt="Étudiant 9">
-                  Étudiant 9
-                </label>
-              </div>
-              
-              <div class="candidate">
-                <input type="radio" id="candidate10" name="candidate" value="Étudiant 10">
-                <label for="candidate10">
-                  <img src="images/candidate10.jpg" alt="Étudiant 10">
-                  Étudiant 10
-                </label>
-              </div>
-            </fieldset>
-            
-            <!-- Hidden inputs for Formsubmit options -->
-            <input type="hidden" name="_subject" value="Nouveau vote EMSI Best Talent">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://yourdomain.com/merci.html">
-            
-            <button type="submit">Votez</button>
-          </form>
-        </section>
-        <p>
-          Le Club Agora a organisé le concours "EMSI Best Talent", mettant en valeur les compétences artistiques des étudiants. Venez découvrir les talents de l'EMSI.
         </p>
       </article>
       
@@ -763,12 +677,15 @@
   <!-- Back to Top Button -->
   <button id="backToTop" title="Retour en haut" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #1b5e20; color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; z-index: 1000;">↑</button>
   
+  <!-- Include GSAP and Confetti Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
   <script>
     // Music Toggle Functionality
     const musicToggle = document.getElementById('musicToggle');
     const bgMusic = document.getElementById('bg-music');
     let isPlaying = false;
-
     musicToggle.addEventListener('click', () => {
       if (isPlaying) {
         bgMusic.pause();
@@ -779,7 +696,7 @@
       }
       isPlaying = !isPlaying;
     });
-
+    
     // Back to Top Button Functionality
     const backToTopButton = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
@@ -791,7 +708,7 @@
         behavior: 'smooth'
       });
     });
-
+    
     // Highlight Active Section in Navigation
     const sections = document.querySelectorAll('main section');
     const navLinks = document.querySelectorAll('nav a');
@@ -810,7 +727,25 @@
         }
       });
     });
-
+    
+    // Easter Egg Modal and Confetti
+    const easterEgg = document.getElementById('easterEgg');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeModal = document.getElementById('closeModal');
+    easterEgg.addEventListener('click', () => {
+      // Show modal
+      modalOverlay.style.display = 'flex';
+      // Trigger confetti
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    });
+    closeModal.addEventListener('click', () => {
+      modalOverlay.style.display = 'none';
+    });
+    
     // Add Tooltip to Back to Top Button
     backToTopButton.addEventListener('mouseover', () => {
       const tooltip = document.createElement('div');
@@ -833,8 +768,8 @@
         tooltip.remove();
       }
     });
-
-    // Animate Elements using GSAP
+    
+    // Animate Elements using GSAP and ScrollTrigger (if available)
     document.addEventListener('DOMContentLoaded', () => {
       gsap.from('header', {
         duration: 1.5,
@@ -876,10 +811,5 @@
       });
     });
   </script>
-  
-  <!-- Include GSAP and ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
 </html>
-<!-- End of HTML Document -->
- 
