@@ -377,10 +377,9 @@
     /* Easter Egg Button */
     #easterEgg {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      right: 46%;
       top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: #fff;
       background-color: green;
       border-radius: 8px;
@@ -391,39 +390,28 @@
       z-index: 1100;
       box-shadow: 0 4px 8px rgba(159, 159, 159, 0.471);
       transition: background-color 0.3s ease, transform 0.3s ease;
-      animation: pulse 1.5s infinite;
+      animation: fadeIn 2s ease-in-out forwards, hoverDown 2s ease-in-out infinite alternate;
+      opacity: 0;
     }
-
-    #easterEgg:hover {
-      background-color: #fb0000;
-      transform: scale(1.1);
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-      transform: scale(1);
-      box-shadow: 0 4px 8px rgba(159, 159, 159, 0.471);
-      }
-      50% {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(159, 159, 159, 0.6);
-      }
-    }
-    #easterEgg:hover {
-      background-color: #fb0000;
-    }
-    #easterEgg {
-      animation: hoverDown 2s ease-in-out infinite alternate;
-    }
-
+    
     @keyframes hoverDown {
       0% {
-        transform: translateY(0);
+        transform: translate(-50%, -50%) translateY(0);
       }
       100% {
-        transform: translateY(10px);
+        transform: translate(-50%, -50%) translateY(10px);
       }
     }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
     /* Modal Styles */
     #modalOverlay {
       position: fixed;
@@ -458,19 +446,24 @@
     #modal button:hover {
       background-color: #155a14;
     }
-    #easterEgg {
-      opacity: 0;
-      animation: fadeIn 2s ease-in-out forwards, hoverDown 2s ease-in-out infinite alternate;
+    
+    /* Back to Top Button */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1b5e20;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1000;
     }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
+    
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       nav {
@@ -493,6 +486,11 @@
       }
       main {
         padding: 40px 10px;
+      }
+      /* Adjust Easter Egg Button for smaller screens */
+      #easterEgg {
+        padding: 8px 12px;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -530,7 +528,7 @@
   <div id="modalOverlay">
     <div id="modal">
       <h2>Le Savez Vous?</h2>
-      <p>Le Club Agora va organisez une <b>ESCAPE GAME</b> entre le 21 et 25 avril !</p>
+      <p>Le Club Agora va organiser un <b>ESCAPE GAME</b> entre le 21 et 25 avril !</p>
       <button id="closeModal">Fermer</button>
     </div>
   </div>
@@ -675,7 +673,7 @@
   </footer>
   
   <!-- Back to Top Button -->
-  <button id="backToTop" title="Retour en haut" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #1b5e20; color: #fff; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; z-index: 1000;">↑</button>
+  <button id="backToTop" title="Retour en haut">↑</button>
   
   <!-- Include GSAP and Confetti Plugin -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -733,9 +731,7 @@
     const modalOverlay = document.getElementById('modalOverlay');
     const closeModal = document.getElementById('closeModal');
     easterEgg.addEventListener('click', () => {
-      // Show modal
       modalOverlay.style.display = 'flex';
-      // Trigger confetti
       confetti({
         particleCount: 100,
         spread: 70,
@@ -769,7 +765,7 @@
       }
     });
     
-    // Animate Elements using GSAP and ScrollTrigger (if available)
+    // Animate Elements using GSAP
     document.addEventListener('DOMContentLoaded', () => {
       gsap.from('header', {
         duration: 1.5,
